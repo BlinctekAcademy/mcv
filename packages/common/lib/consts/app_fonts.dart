@@ -11,6 +11,15 @@ extension TextExtension on Text {
         style: (this.style ?? defaultStyle).merge(style ?? defaultStyle));
   }
 
+  Text superTitle({TextStyle? style}) {
+    final defaultStyle = TextStyle(
+        fontSize: 44,
+        fontWeight: FontWeight.w500,
+        color: ColorPalette.background);
+    return Text(data!,
+        style: (this.style ?? defaultStyle).merge(style ?? defaultStyle));
+  }
+
   Text description({TextStyle? style}) {
     final defaultStyle = TextStyle(
         height: 1.5,

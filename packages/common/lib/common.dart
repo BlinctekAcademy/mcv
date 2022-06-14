@@ -9,3 +9,6 @@ export 'package:injector/injector.dart';
 
 export 'module/module.dart';
 export 'base/base.dart';
+export 'consts/consts.dart';
+export 'entity/entity.dart';
+export 'enum/status.dart';

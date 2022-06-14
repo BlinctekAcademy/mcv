@@ -1,6 +1,4 @@
 import 'package:common/common.dart';
-import 'package:common/entity/usuario.dart';
-import 'package:common/enum/status.dart';
 import 'package:usuario/service/user_interface.dart';
 
 class UserController extends BaseController {

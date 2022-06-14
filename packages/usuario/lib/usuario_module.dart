@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:network/network.dart';
 import 'package:usuario/service/user.dart';
 import 'package:usuario/ui/controller/user.dart';
+import 'package:usuario/ui/page/contact.dart';
 import 'package:usuario/ui/page/user.dart';
+import 'package:usuario/ui/page/welcome.dart';
 
 import 'service/user_interface.dart';
 
@@ -25,6 +27,10 @@ class UsuarioModule implements ModuleInterface {
 
   @override
   Map<String, WidgetBuilder> routes() {
-    return {Routes.userPage: (_) => UserPage()};
+    return {
+      Routes.userPage: (_) => UserPage(),
+      Routes.welcomePage: (_) => WelcomePage(),
+      Routes.contactPage: (_) => ContactPage()
+    };
   }
 }

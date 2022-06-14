@@ -18,6 +18,8 @@ dependencies:
     path: packages/usuario
   injector:
     path: packages/injector
+  random:
+    path: packages/random
 
   cupertino_icons: ^1.0.2
 

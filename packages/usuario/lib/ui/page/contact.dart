@@ -28,8 +28,7 @@ class _ContactPageState extends State<ContactPage> {
               child: PrimaryButton(
                 text: 'Voltar tudo',
                 onPressed: () {
-                  Navigator.of(context)
-                      .popUntil((ModalRoute.withName(Routes.welcomePage)));
+                  Navigator.of(context).popUntil((ModalRoute.withName('/')));
                 },
               ),
             )

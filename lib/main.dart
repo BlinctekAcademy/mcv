@@ -2,6 +2,7 @@ import 'package:common/common.dart';
 import 'package:flutter/material.dart';
 import 'package:network/network.dart';
 import 'package:usuario/usuario.dart';
+import 'package:random/random.dart';
 import 'dart:math' as math;
 
 void main() async {
@@ -11,7 +12,8 @@ void main() async {
 
 Future<ModuleManagerInterface> _setup() async {
   final ModuleManagerInterface moduleManager = ModuleManager();
-  await moduleManager.registerModules([NetworkModule(), UsuarioModule()]);
+  await moduleManager
+      .registerModules([NetworkModule(), UsuarioModule(), RandomModule()]);
   return moduleManager;
 }
 
@@ -67,6 +69,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: PrimaryButton(
                   text: 'Navegar',
                   onPressed: () async {
+                    Navigator.of(context).pushNamed(Routes.welcomePage);
+                    /*try {
+                      var usuarios = await UserService.instance.listaUsuarios();
+                      print(usuarios);
+                    } catch (error) {
+                      print(error);
+                    }*/
+                  },
+                  disabledColor: Colors.grey,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(Spacing.x2),
+                child: PrimaryButton(
+                  text: 'Usuário',
+                  onPressed: () async {
                     Navigator.of(context).pushNamed(Routes.userPage);
                     /*try {
                       var usuarios = await UserService.instance.listaUsuarios();
@@ -81,8 +99,19 @@ class _MyHomePageState extends State<MyHomePage> {
               Padding(
                 padding: EdgeInsets.all(Spacing.x2),
                 child: PrimaryButton(
+                  text: 'Número Aleatório',
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(Routes.randomPage);
+                  },
+                  disabledColor: Colors.grey,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(Spacing.x2),
+                child: PrimaryButton(
                   text: 'Sync',
                   onPressed: () {
+                    context.read<RandomController>().randomInt();
                     for (var i = 0; i < 5; i++) {
                       _sync(i);
                       print('Pressed $i');
